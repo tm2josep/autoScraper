@@ -2,6 +2,7 @@ const rp = require('request-promise');
 const $ = require('cheerio');
 const fs = require('fs');
 let outputStream;
+let recordCount = 0;
 fs.readFile('./scraper-config.json', function (err, data) {
     if (err) {
         throw err;
@@ -34,10 +35,10 @@ async function beginScraper(config, groupName, baseUrl) {
             .then(html => {
                 let content = $(config.selector, html);
                 for (let i = 0; i < content.length; i++) {
-                    console.log(i);
                     let record = {};
 
                     for (let field in scrape) {
+                        
                         let fieldConfig = scrape[field];
                         record[field] = $(content[i]).find(fieldConfig.selector);
 
@@ -57,6 +58,8 @@ async function beginScraper(config, groupName, baseUrl) {
                             record[field] = "\"" + record[field].text().trim() + "\"";
                         }
                     }
+                    
+                    console.log(++recordCount);
 
                     for (let field in record) {
                         outputStream.write(record[field] + ',');
