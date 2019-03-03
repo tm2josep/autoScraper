@@ -1,0 +1,91 @@
+{
+    "baseUrl": "http://shop.jjcards.com/",
+    "groups": {
+        "products": {
+            "urls": [
+                "A_c_145-1-3.html",
+                "A_c_145-2-3.html",
+                "A_c_145-3-3.html",
+                "B_c_146-1-3.html",
+                "B_c_146-2-3.html",
+                "C_c_147-1-3.html",
+                "C_c_147-2-3.html",
+                "C_c_147-3-3.html",
+                "C_c_147-4-3.html",
+                "D_c_148-1-3.html",
+                "D_c_148-2-3.html",
+                "D_c_148-3-3.html",
+                "E_c_149-1-3.html",
+                "E_c_149-2-3.html",
+                "F_c_150-1-3.html",
+                "F_c_150-2-3.html",
+                "G_c_151-1-3.html",
+                "G_c_151-2-3.html",
+                "G_c_151-3-3.html",
+                "H_c_152.html",
+                "I_c_153.html",
+                "J_c_154.html",
+                "K_c_155-1-3.html",
+                "K_c_155-2-3.html",
+                "L_c_156-1-3.html",
+                "L_c_156-2-3.html",
+                "M_c_157-1-3.html",
+                "M_c_157-2-3.html",
+                "M_c_157-3-3.html",
+                "M_c_157-4-3.html",
+                "N_c_158.html",
+                "O_c_159.html",
+                "P_c_160-1-3.html",
+                "P_c_160-2-3.html",
+                "Q_c_161.html",
+                "R_c_162-1-3.html",
+                "R_c_162-2-3.html",
+                "R_c_162-3-3.html",
+                "S_c_163-1-3.html",
+                "S_c_163-2-3.html",
+                "S_c_163-3-3.html",
+                "S_c_163-4-3.html",
+                "S_c_163-5-3.html",
+                "T_c_164-1-3.html",
+                "T_c_164-2-3.html",
+                "T_c_164-3-3.html",
+                "U_c_165.html",
+                "V_c_166.html",
+                "W_c_167.html",
+                "X_c_168.html",
+                "Z_c_169.html"
+            ],
+            "selector": "div.product-item",
+            "outputFile": "C:\\Users\\Mammen\\Desktop\\products.csv",
+            "scrape": {
+                "image": {
+                    "selector": "div.img > a > img",
+                    "name": "Image",
+                    "options": {
+                        "attribute": "src",
+                        "prependBaseUrl": true
+                    }
+                },
+                "productName": {
+                    "selector": "div.name > a",
+                    "name": "Name"
+                },
+                "originalPrice": {
+                    "selector": "div.price > del.price2",
+                    "name": "Original Price"
+                },
+                "currentPrice": {
+                    "selector": "div.price",
+                    "name": "Current Price",
+                    "options": {
+                        "excludeSiblings": true
+                    }
+                },
+                "status": {
+                    "selector": "div.status",
+                    "name": "Status"
+                }
+            }
+        }
+    }
+}
