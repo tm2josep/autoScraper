@@ -1,0 +1,127 @@
+{
+    "baseUrl": "http://shop.jjcards.com/",
+    "groups": {
+        "products": {
+            "urls": [
+                "A_c_145-1-3.html",
+                "A_c_145-2-3.html",
+                "A_c_145-3-3.html",
+                "B_c_146-1-3.html",
+                "B_c_146-2-3.html",
+                "C_c_147-1-3.html",
+                "C_c_147-2-3.html",
+                "C_c_147-3-3.html",
+                "C_c_147-4-3.html",
+                "D_c_148-1-3.html",
+                "D_c_148-2-3.html",
+                "D_c_148-3-3.html",
+                "E_c_149-1-3.html",
+                "E_c_149-2-3.html",
+                "F_c_150-1-3.html",
+                "F_c_150-2-3.html",
+                "G_c_151-1-3.html",
+                "G_c_151-2-3.html",
+                "G_c_151-3-3.html",
+                "H_c_152.html",
+                "I_c_153.html",
+                "J_c_154.html",
+                "K_c_155-1-3.html",
+                "K_c_155-2-3.html",
+                "L_c_156-1-3.html",
+                "L_c_156-2-3.html",
+                "M_c_157-1-3.html",
+                "M_c_157-2-3.html",
+                "M_c_157-3-3.html",
+                "M_c_157-4-3.html",
+                "N_c_158.html",
+                "O_c_159.html",
+                "P_c_160-1-3.html",
+                "P_c_160-2-3.html",
+                "Q_c_161.html",
+                "R_c_162-1-3.html",
+                "R_c_162-2-3.html",
+                "R_c_162-3-3.html",
+                "S_c_163-1-3.html",
+                "S_c_163-2-3.html",
+                "S_c_163-3-3.html",
+                "S_c_163-4-3.html",
+                "S_c_163-5-3.html",
+                "T_c_164-1-3.html",
+                "T_c_164-2-3.html",
+                "T_c_164-3-3.html",
+                "U_c_165.html",
+                "V_c_166.html",
+                "W_c_167.html",
+                "X_c_168.html",
+                "Z_c_169.html",
+                "Magic-the-Gathering_c_184.html",
+                "Pokemon_c_185.html",
+                "Yu-Gi-Oh_c_186.html",
+                "Dragon-Shield_c_334.html",
+                "Ultra-Pro-Sleeves-Small_c_336.html",
+                "Ultra-Pro-Sleeves-Standard_c_335.html",
+                "DND-Unpainted-Minis_c_340-1-3.html",
+                "DND-Unpainted-Minis_c_340-2-3.html",
+                "DND-Unpainted-Minis_c_340-3-3.html",
+                "DND-Unpainted-Minis_c_340-4-3.html",
+                "Pathfinder-Unpainted-Minis_c_341-1-3.html",
+                "Pathfinder-Unpainted-Minis_c_341-2-3.html",
+                "Pathfinder-Unpainted-Minis_c_341-3-3.html",
+                "Star-Wars-Armada_c_260.html",
+                "Star-Wars-Imperial-Assault_c_266.html",
+                "Star-Wars-Imperial-Assault_c_266-2.html",
+                "Star-Wars-Legion_c_284.html",
+                "Star-Wars-X-Wing_c_225-1-3.html",
+                "Star-Wars-X-Wing_c_225-2-3.html",
+                "Star-Wars-X-Wing_c_225-3-3.html",
+                "Wizkids-Unpainted-Minis_c_342-1-3.html",
+                "Wizkids-Unpainted-Minis_c_342-2-3.html",
+                "-Parlour-Games_c_34.html",
+                "Dungeons-Dragons_c_215.html",
+                "RPG-Dice-Sets_c_280-1-3.html",
+                "RPG-Dice-Sets_c_280-2-3.html",
+                "-Candy_c_18.html",
+                "Piggy-Paint_c_221.html",
+                "Cookie-Jars_c_302.html",
+                "Dishware_c_307.html",
+                "Mugs_c_303.html",
+                "Salt-Pepper_c_308.html"
+            ],
+            "selector": "div.product-item",
+            "outputFile": "C:\\Users\\Owner\\Desktop\\products.csv",
+            "scrape": {
+                "image": {
+                    "selector": "div.img > a > img",
+                    "name": "Image",
+                    "options": {
+                        "attribute": "src",
+                        "prependBaseUrl": true
+                    }
+                },
+                "productName": {
+                    "selector": "div.name > a",
+                    "name": "Name"
+                },
+                "originalPrice": {
+                    "selector": "div.price > del.price2",
+                    "name": "Original Price"
+                },
+                "currentPrice": {
+                    "selector": "div.price",
+                    "name": "Current Price",
+                    "options": {
+                        "excludeSiblings": true
+                    }
+                },
+                "numReviews": {
+                    "selector": "div.stars",
+                    "name": "Reviews"
+                },
+                "status": {
+                    "selector": "div.status",
+                    "name": "Status"
+                }
+            }
+        }
+    }
+}
