@@ -1,6 +1,7 @@
 const rp = require('request-promise');
 const $ = require('cheerio');
 const fs = require('fs');
+const puppeteer = require('puppeteer')
 let outputStream;
 let recordCount = 0;
 fs.readFile('./scraper-config.json', function (err, data) {
@@ -31,20 +32,32 @@ async function beginScraper(config, groupName, baseUrl) {
     outputStream.write('\n');
 
     config.urls.forEach((pageUrl) =>
-        rp(baseUrl + pageUrl)
+        puppeteer
+            .launch()
+            .then(function (browser) {
+                return browser.newPage();
+            })
+            .then(function (page) {
+                return page.goto(baseUrl + pageUrl).then(function () {
+                    return page.content();
+                });
+            })
             .then(html => {
                 let content = $(config.selector, html);
                 for (let i = 0; i < content.length; i++) {
                     let record = {};
 
                     for (let field in scrape) {
-                        
+
                         let fieldConfig = scrape[field];
                         record[field] = $(content[i]).find(fieldConfig.selector);
 
                         if (scrape[field].hasOwnProperty('options')) {
                             if (scrape[field].options.hasOwnProperty('attribute')) {
-                                record[field] = record[field][0].attribs[scrape[field].options.attribute];
+                                if (record[field][0] == undefined || record[field][0].attribs[scrape[field].options.attribute] == undefined)
+                                    record[field] = '-'
+                                else
+                                    record[field] = record[field][0].attribs[scrape[field].options.attribute];
                             }
 
                             if (scrape[field].options.hasOwnProperty('prependBaseUrl') && scrape[field].options.prependBaseUrl) {
@@ -58,7 +71,7 @@ async function beginScraper(config, groupName, baseUrl) {
                             record[field] = "\"" + record[field].text().trim() + "\"";
                         }
                     }
-                    
+
                     console.log(++recordCount);
 
                     for (let field in record) {

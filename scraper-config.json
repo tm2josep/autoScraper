@@ -6,19 +6,35 @@
                 "winter-bouquets/cat1080005"
             ],
             "selector": "div.m-product-mini",
-            "outputFile": "C:\\Users\\Owner\\Desktop\\products.csv",
+            "outputFile": "C:\\Users\\Mammen\\Desktop\\test.csv",
             "scrape": {
-                "image":{
-                   "selector": "div.m-product-mini-image > figure.fluid > img",
-                   "name":"Image",
-                   "options":{
-                       "attribute": "src",
-                       "prependBaseUrl": true
-                   }
-
-
+                "image": {
+                    "selector": "figure.fluid > img",
+                    "name": "Image",
+                    "options": {
+                        "attribute": "src",
+                        "prependBaseUrl": true
+                    }
+                },
+                "status": {
+                    "selector": "span.m-product-mini-merchandising-icon > img",
+                    "name": "Status",
+                    "options": {
+                        "attribute": "alt"
+                    }
+                },
+                "bouquetName": {
+                    "selector": "a.m-category-flower-link.centered.text-large > h2.m-category-flower-link-h2",
+                    "name": "Name"
+                },
+                "price": {
+                    "selector": "a.m-product-mini-price > span:not([class]) ",
+                    "name": "Regular Price"
+                },
+                "discPrice": {
+                    "selector": "a.m-product-mini-price > span.priceTag-discount ",
+                    "name": "Discount Price"
                 }
-
             }
         }
     }
